@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Projects | SRD Design Service</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* Page Header */
+      .page-header {
+        background: linear-gradient(rgba(0, 33, 71, 0.8), rgba(0, 33, 71, 0.8)), url('./images/slider/Structure design.webp') center/cover;
+        padding: 100px 0 60px;
+        color: white;
+      }
+      .breadcrumb-item a { color: var(--accent-red); text-decoration: none; }
+      .breadcrumb-item.active { color: white; }
+      .breadcrumb-item + .breadcrumb-item::before { color: white; }
+
+      /* Filter Buttons */
+      .filter-scroll-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+      }
+      .filter-btn {
+        background-color: transparent;
+        border: 2px solid var(--primary-blue);
+        color: var(--primary-blue);
+        padding: 8px 24px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .filter-btn:hover, .filter-btn.active {
+        background-color: var(--primary-blue);
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 33, 71, 0.2);
+      }
+
+      /* Gallery Cards */
+      .gallery-wrap { transition: transform 0.4s ease, opacity 0.4s ease; }
+      .gallery-wrap.hide { display: none; }
+      .gallery-card {
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+      }
+      .gallery-card:hover {
+        border-color: var(--accent-red);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 33, 71, 0.15);
+      }
+      .gallery-card img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .gallery-card:hover img { transform: scale(1.1); }
+      
+      .gallery-overlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 33, 71, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: white;
+      }
+      .gallery-card:hover .gallery-overlay { opacity: 1; }
+      .gallery-overlay div { transform: translateY(20px); transition: transform 0.3s ease; }
+      .gallery-card:hover .gallery-overlay div { transform: translateY(0); }
+
+      /* Lightbox Fixes */
+      #lightboxModal .modal-dialog { display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0 auto; }
+      #lightboxModal .modal-content { background-color: transparent; border: none; width: auto; position: relative; }
+      #lightboxModal .btn-close-custom {
+        position: absolute; top: -15px; right: -15px; background-color: var(--accent-red); color: white;
+        border: none; border-radius: 50%; width: 40px; height: 40px; z-index: 1055; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.3s ease;
+      }
+      #lightboxModal .btn-close-custom:hover { background-color: white; color: var(--accent-red); transform: scale(1.1); }
+      #lightboxImage { border-radius: 12px; max-height: 75vh; max-width: 90vw; object-fit: contain; border: 4px solid #fff; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+    </style>
+  </head>
+  <body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg sticky-top transition-all" id="mainNav">
+      <div class="container">
+        
+<a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <img src="./images/SRD Logo.webp" alt="SRD Design" class="logo-img">
+            <div class="lh-1 pt-2"> <span class="text-primary-custom">SRD</span><span class="brand-text"> Design Service</span>
+            </div>
+        </a>
+
+        <button
+          class="navbar-toggler shadow-none bg-white"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+        >
+          <i class="fas fa-bars text-dark"></i>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+          
+          <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold text-primary-custom">SRD Design Service</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+          </div>
+          
+          <div class="offcanvas-body">
+            
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center gap-3">
+              <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+            </ul>
+
+            <div class="d-flex mt-3 mt-lg-0">
+              <a href="#contact" class="btn-quote">
+                Get Quote <i class="fas fa-arrow-right ms-2" style="font-size: 12px;"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <section class="page-header text-center">
+      <div class="container">
+        <h1 class="display-4 fw-bold mb-3" style="font-family: 'Rajdhani', sans-serif; color: #fff;">Our Projects</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Projects</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section class="py-5 bg-white">
+      <div class="container py-4">
+        
+        <div class="text-center mb-5">
+          <h6 class="text-uppercase fw-bold mb-2" style="color: var(--accent-red); letter-spacing: 2px;">Portfolio</h6>
+          <h2 class="display-6 fw-bold text-dark" style="font-family: 'Rajdhani', sans-serif;">Featured Engineering Works</h2>
+          <div class="mx-auto mt-3" style="width: 60px; height: 4px; background: var(--primary-blue); border-radius: 2px;"></div>
+        </div>
+
+        <div class="filter-scroll-container">
+          <button class="btn filter-btn active" data-filter="all">All Projects</button>
+          <button class="btn filter-btn" data-filter="vessel">Pressure Vessels</button>
+          <button class="btn filter-btn" data-filter="tank">Storage Tanks</button>
+          <button class="btn filter-btn" data-filter="piping">Piping & Layouts</button>
+          <button class="btn filter-btn" data-filter="structure">Structures</button>
+        </div>
+
+        <div class="row g-4" id="gallery-grid">
+
+          <div class="col-lg-4 col-md-6 gallery-wrap" data-category="tank">
+            <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+              <img src="./images/1.webp" alt="API Storage Tank">
+              <div class="gallery-overlay">
+                <div class="text-center">
+                  <i class="fas fa-search-plus fs-3 mb-2"></i>
+                  <h5 class="fw-bold mb-0">API Storage Tank</h5>
+                  <span class="text-accent small text-uppercase">Tank Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-wrap" data-category="vessel">
+            <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+              <img src="./images/2.webp" alt="Pressure Vessel">
+              <div class="gallery-overlay">
+                <div class="text-center">
+                  <i class="fas fa-search-plus fs-3 mb-2"></i>
+                  <h5 class="fw-bold mb-0">Vertical Pressure Vessel</h5>
+                  <span class="text-accent small text-uppercase">Vessel Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-wrap" data-category="piping">
+            <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+              <img src="./images/3.webp" alt="Piping Layout">
+              <div class="gallery-overlay">
+                <div class="text-center">
+                  <i class="fas fa-search-plus fs-3 mb-2"></i>
+                  <h5 class="fw-bold mb-0">Plant Piping Layout</h5>
+                  <span class="text-accent small text-uppercase">Piping Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-wrap" data-category="structure">
+            <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+              <img src="./images/12.webp" alt="Structural Frame">
+              <div class="gallery-overlay">
+                <div class="text-center">
+                  <i class="fas fa-search-plus fs-3 mb-2"></i>
+                  <h5 class="fw-bold mb-0">Industrial Structure</h5>
+                  <span class="text-accent small text-uppercase">Structure Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-wrap" data-category="vessel">
+            <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+              <img src="./images/5.webp" alt="Heat Exchanger">
+              <div class="gallery-overlay">
+                <div class="text-center">
+                  <i class="fas fa-search-plus fs-3 mb-2"></i>
+                  <h5 class="fw-bold mb-0">TEMA Heat Exchanger</h5>
+                  <span class="text-accent small text-uppercase">Vessel Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 gallery-wrap" data-category="piping">
+            <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+              <img src="./images/slider/HVAC layout design.webp" alt="HVAC Design">
+              <div class="gallery-overlay">
+                <div class="text-center">
+                  <i class="fas fa-search-plus fs-3 mb-2"></i>
+                  <h5 class="fw-bold mb-0">HVAC Duct Routing</h5>
+                  <span class="text-accent small text-uppercase">Piping Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="modal-body p-0 text-center">
+            <img id="lightboxImage" src="" alt="Project Full View">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================ Contact Us  ============= -->
+     <section id="contact" class="section-padding bg-light position-relative">
+      <div class="container position-relative z-2">
+        
+        <div class="row g-0 shadow-lg rounded-4 overflow-hidden">
+          
+          <div class="col-lg-5 contact-info-box p-5 text-white d-flex flex-column justify-content-between position-relative">
+            <div class="circle-decoration"></div>
+
+            <div>
+              <h6 class="text-uppercase ls-2 opacity-75 mb-3">Get in Touch</h6>
+              <h2 class="fw-bold mb-4">Let's Discuss Your <br> <span class="text-accent">Next Project</span></h2>
+              <p class="opacity-75 mb-5">
+                Ready to start? Give us a call or send us an email and we will get back to you as soon as possible.
+              </p>
+            </div>
+
+            <div class="contact-details">
+              <div class="d-flex align-items-start mb-4">
+                <div class="icon-circle bg-white text-primary-custom me-3">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">Our Office</h6>
+                  <p class="mb-0 opacity-75 small">Bhatwliya, Gopalganj,<br>Bihar 841405</p>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start mb-4">
+                <div class="icon-circle bg-white text-primary-custom me-3">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">Call Us</h6>
+                  <p class="mb-0 small">Sumit Kumar (Director)</p>
+                  <a href="tel:+918591867199" class="text-white text-decoration-none fw-bold">+91 8591867199</a>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start">
+                <div class="icon-circle bg-white text-primary-custom me-3">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">Email Us</h6>
+                  <a href="mailto:info@srddesignservice.in" class="text-white text-decoration-none opacity-75 small d-block">srddesignservice@gmail.com</a>
+                  <a href="https://www.srddesignservice.in" target="_blank" class="text-white text-decoration-none opacity-75 small">www.srddesignservice.in</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <h6 class="fw-bold mb-3">Follow Us</h6>
+              <div class="d-flex gap-3">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+
+          </div>
+
+<div class="col-lg-7 bg-white p-5">
+  <h3 class="fw-bold text-dark mb-4">Send us a Message</h3>
+  
+  <form id="whatsappForm">
+    <div class="row g-3">
+      
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+          <label for="name">Your Name</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+          <label for="phone">Phone Number</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" placeholder="Email Address">
+          <label for="email">Email Address</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <select class="form-select" id="service">
+            <option selected value="General Inquiry">Select Service</option>
+            <option value="Pressure vessel design">Pressure vessel design</option>
+            <option value="Storage tank design">Storage tank design</option>
+            <option value="Column design">Column design</option>
+            <option value="Heat exchanger design">Heat exchanger design</option>
+            <option value="Reactor design">Reactor design</option>
+            <option value="Agitator design">Agitator design</option>
+            <option value="Home layout design">Home layout design</option>
+            <option value="Piping design">Piping design</option>
+            <option value="Structure design">Structure design</option>
+            <option value="HVAC design">HVAC design</option>
+            <option value="Other">Other</option>
+          </select>
+          <label for="service">Interested Service</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+          <label for="message">Project Details</label>
+        </div>
+      </div>
+
+      <div class="col-12 mt-4">
+        <button type="submit" class="btn btn-custom w-100 py-3 fw-bold rounded-pill">
+          Send Message <i class="fas fa-paper-plane ms-2"></i>
+        </button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+        </div>
+      </div>
+
+      <div class="container-fluid p-0 mt-5">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.6473696582595!2d84.45398731503348!3d26.33789498337861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDIwJzE2LjQiTiA4NMKwMjcnMjIuMiJF!5e0!3m2!1sen!2sin!4v1625555555555!5m2!1sen!2sin" 
+          width="100%" 
+          height="450" 
+          style="border:0; filter: grayscale(100%);" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- ================= Footer Section ================ -->
+     <div class="footer-bottom py-3 border-top border-secondary">
+        <div class="container">
+          <div class="row align-items-center">
+            
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0 small">
+                &copy; 2026 <strong>SRD Design Service</strong>. All Rights Reserved.
+              </p>
+            </div>
+
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+              <ul class="list-inline mb-0 small">
+                <li class="list-inline-item">
+                  <a href="#" class="text-secondary text-decoration-none hover-white">Privacy Policy</a>
+                </li>
+                <li class="list-inline-item text-secondary opacity-50">|</li>
+                <li class="list-inline-item">
+                  <a href="#" class="text-secondary text-decoration-none hover-white">Terms & Conditions</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        
+        // 1. Filter Logic
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const galleryItems = document.querySelectorAll(".gallery-wrap");
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener("click", function() {
+            // Remove active from all
+            filterBtns.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const filterValue = this.getAttribute("data-filter");
+
+            galleryItems.forEach(item => {
+              if (filterValue === "all" || item.getAttribute("data-category") === filterValue) {
+                item.classList.remove("hide");
+                item.style.opacity = "0";
+                setTimeout(() => { item.style.opacity = "1"; }, 50);
+              } else {
+                item.classList.add("hide");
+              }
+            });
+          });
+        });
+
+        // 2. Lightbox Logic
+        const galleryCards = document.querySelectorAll(".gallery-card");
+        const lightboxImage = document.getElementById("lightboxImage");
+
+        galleryCards.forEach(card => {
+          card.addEventListener("click", function() {
+            const imgInside = this.querySelector("img");
+            if (imgInside) {
+              lightboxImage.src = imgInside.src;
+            }
+          });
+        });
+
+      });
+    </script>
+  </body>
+</html>

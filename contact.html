@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | SRD Design Service</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* Page specific styles */
+      .page-header {
+        background: linear-gradient(rgba(0, 33, 71, 0.8), rgba(0, 33, 71, 0.8)), url('./images/slider/HVAC layout design.webp') center/cover;
+        padding: 100px 0 60px;
+        color: white;
+      }
+      .breadcrumb-item a { color: var(--accent-red, #dc3545); text-decoration: none; }
+      .breadcrumb-item.active { color: white; }
+      .breadcrumb-item + .breadcrumb-item::before { color: white; }
+
+      /* Contact Info Box styling */
+      .contact-info-bg {
+        background-color: var(--primary-custom, #002147); /* Dark Navy Blue */
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-info-bg::before {
+        content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; 
+        border-radius: 50%; background: rgba(255,255,255,0.05);
+      }
+      .contact-info-bg::after {
+        content: ''; position: absolute; bottom: -50px; left: -50px; width: 150px; height: 150px; 
+        border-radius: 50%; background: rgba(255,255,255,0.05);
+      }
+      
+      .icon-circle {
+        width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        background-color: rgba(255,255,255,0.1); color: #fff; transition: all 0.3s ease;
+      }
+      .contact-detail-row:hover .icon-circle {
+        background-color: var(--accent-red, #dc3545); color: #fff; transform: scale(1.1);
+      }
+      
+      .social-btn {
+        width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+        background: rgba(255,255,255,0.1); color: white; text-decoration: none; transition: 0.3s;
+      }
+      .social-btn:hover { background: var(--accent-red, #dc3545); color: white; transform: translateY(-3px); }
+
+      /* Form styling */
+      .form-control:focus, .form-select:focus {
+        border-color: var(--primary-custom, #002147); box-shadow: 0 0 0 0.25rem rgba(0, 33, 71, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg sticky-top transition-all" id="mainNav">
+      <div class="container">
+        
+<a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <img src="./images/SRD Logo.webp" alt="SRD Design" class="logo-img">
+            <div class="lh-1 pt-2"> <span class="text-primary-custom">SRD</span><span class="brand-text"> Design Service</span>
+            </div>
+        </a>
+
+        <button
+          class="navbar-toggler shadow-none bg-white"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+        >
+          <i class="fas fa-bars text-dark"></i>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+          
+          <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold text-primary-custom">SRD Design Service</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+          </div>
+          
+          <div class="offcanvas-body">
+            
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center gap-3">
+              <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+            </ul>
+
+            <div class="d-flex mt-3 mt-lg-0">
+              <a href="#contact" class="btn-quote">
+                Get Quote <i class="fas fa-arrow-right ms-2" style="font-size: 12px;"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <section class="page-header text-center">
+      <div class="container">
+        <h1 class="display-4 fw-bold mb-3" style="font-family: 'Rajdhani', sans-serif; color: #ffff;">Contact Us</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section class="py-5 position-relative">
+      <div class="container py-4 position-relative z-2">
+        
+        <div class="text-center mb-5">
+          <h6 class="text-uppercase fw-bold mb-2" style="color: var(--accent-red, #dc3545); letter-spacing: 2px;">Reach Out</h6>
+          <h2 class="display-6 fw-bold text-dark" style="font-family: 'Rajdhani', sans-serif;">We'd Love to Hear From You</h2>
+          <div class="mx-auto mt-3" style="width: 60px; height: 4px; background: var(--primary-custom, #002147); border-radius: 2px;"></div>
+        </div>
+
+        <div class="container position-relative z-2">
+        
+        <div class="row g-0 shadow-lg rounded-4 overflow-hidden">
+          
+          <div class="col-lg-5 contact-info-box p-5 text-white d-flex flex-column justify-content-between position-relative">
+            <div class="circle-decoration"></div>
+
+            <div>
+              <h6 class="text-uppercase ls-2 opacity-75 mb-3">Get in Touch</h6>
+              <h2 class="fw-bold mb-4">Let's Discuss Your <br> <span class="text-accent">Next Project</span></h2>
+              <p class="opacity-75 mb-5">
+                Ready to start? Give us a call or send us an email and we will get back to you as soon as possible.
+              </p>
+            </div>
+
+            <div class="contact-details">
+              <div class="d-flex align-items-start mb-4">
+                <div class="icon-circle bg-white text-primary-custom me-3">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">Our Office</h6>
+                  <p class="mb-0 opacity-75 small">Bhatwliya, Gopalganj,<br>Bihar 841405</p>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start mb-4">
+                <div class="icon-circle bg-white text-primary-custom me-3">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">Call Us</h6>
+                  <p class="mb-0 small">Sumit Kumar (Director)</p>
+                  <a href="tel:+918591867199" class="text-white text-decoration-none fw-bold">+91 8591867199</a>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start">
+                <div class="icon-circle bg-white text-primary-custom me-3">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">Email Us</h6>
+                  <a href="mailto:info@srddesignservice.in" class="text-white text-decoration-none opacity-75 small d-block">srddesignservice@gmail.com</a>
+                  <a href="https://www.srddesignservice.in" target="_blank" class="text-white text-decoration-none opacity-75 small">www.srddesignservice.in</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <h6 class="fw-bold mb-3">Follow Us</h6>
+              <div class="d-flex gap-3">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+
+          </div>
+
+<div class="col-lg-7 bg-white p-5">
+  <h3 class="fw-bold text-dark mb-4">Send us a Message</h3>
+  
+  <form id="whatsappForm">
+    <div class="row g-3">
+      
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+          <label for="name">Your Name</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+          <label for="phone">Phone Number</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" placeholder="Email Address">
+          <label for="email">Email Address</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <select class="form-select" id="service">
+            <option selected value="General Inquiry">Select Service</option>
+            <option value="Pressure vessel design">Pressure vessel design</option>
+            <option value="Storage tank design">Storage tank design</option>
+            <option value="Column design">Column design</option>
+            <option value="Heat exchanger design">Heat exchanger design</option>
+            <option value="Reactor design">Reactor design</option>
+            <option value="Agitator design">Agitator design</option>
+            <option value="Home layout design">Home layout design</option>
+            <option value="Piping design">Piping design</option>
+            <option value="Structure design">Structure design</option>
+            <option value="HVAC design">HVAC design</option>
+            <option value="Other">Other</option>
+          </select>
+          <label for="service">Interested Service</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+          <label for="message">Project Details</label>
+        </div>
+      </div>
+
+      <div class="col-12 mt-4">
+        <button type="submit" class="btn btn-custom w-100 py-3 fw-bold rounded-pill">
+          Send Message <i class="fas fa-paper-plane ms-2"></i>
+        </button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+        </div>
+      </div>
+      </div>
+    </section>
+
+      <div class="container-fluid p-0 mt-5">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.6473696582595!2d84.45398731503348!3d26.33789498337861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDIwJzE2LjQiTiA4NMKwMjcnMjIuMiJF!5e0!3m2!1sen!2sin!4v1625555555555!5m2!1sen!2sin" 
+          width="100%" 
+          height="450" 
+          style="border:0; filter: grayscale(100%);" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- ================= Footer Section ================ -->
+     <div class="footer-bottom py-3 border-top border-secondary">
+        <div class="container">
+          <div class="row align-items-center">
+            
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0 small">
+                &copy; 2026 <strong>SRD Design Service</strong>. All Rights Reserved.
+              </p>
+            </div>
+
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+              <ul class="list-inline mb-0 small">
+                <li class="list-inline-item">
+                  <a href="#" class="text-secondary text-decoration-none hover-white">Privacy Policy</a>
+                </li>
+                <li class="list-inline-item text-secondary opacity-50">|</li>
+                <li class="list-inline-item">
+                  <a href="#" class="text-secondary text-decoration-none hover-white">Terms & Conditions</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

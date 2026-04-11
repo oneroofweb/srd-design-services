@@ -1,0 +1,640 @@
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+========================================== */
+:root {
+  /* SRD Design Brand Colors */
+  --primary-blue: #00aeef;      /* Logo Blue */
+  --accent-red: #ed1c24;        /* Logo Red */
+  --dark-color: #1a1a1a;        /* Black/Dark Grey */
+  --bg-light: #f4f7f6;          /* Light Background */
+  
+  /* Gradients for Buttons/Backgrounds */
+  --gradient-main: linear-gradient(135deg, #00aeef 0%, #0072bc 100%);
+  --gradient-hover: linear-gradient(135deg, #ed1c24 0%, #be1e2d 100%);
+}
+
+/* =========================================
+   2. TYPOGRAPHY (FONTS)
+========================================== */
+body {
+  font-family: "Poppins", sans-serif; /* Body text ke liye clean font */
+  color: #555;
+  background-color: #fff;
+  overflow-x: hidden; /* Horizontal scroll rokne ke liye */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Rajdhani", sans-serif; /* Headings ke liye Technical font */
+  font-weight: 700;
+  color: var(--dark-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.active-nav{
+  color: var(--accent-red) !important;
+}
+
+/* =========================================
+   3. UTILITY CLASSES (Common Styles)
+========================================== */
+
+/* Section Padding (Har section me space dene ke liye) */
+.section-padding {
+  padding: 80px 0;
+}
+
+/* Text Colors Utilities */
+.text-primary-custom { color: var(--primary-blue) !important; }
+.text-accent { color: var(--accent-red) !important; }
+
+/* Custom Buttons Styling Base */
+.btn-custom {
+  background: var(--gradient-main);
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background: var(--gradient-hover);
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* =========================================
+   4. SECTION SPECIFIC STYLES WILL GO BELOW
+========================================== */
+
+/* --- Navbar Base Styles --- */
+.navbar {
+  transition: all 0.4s ease; /* Smooth transition for color change */
+  padding: 20px 0;
+  z-index: 1000;
+  background-color: #fff !important;
+}
+
+.navbar-brand {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ================== Navbar LOGO =============== */
+/* --- Navbar Logo Styles --- */
+
+/* --- Navbar Brand (Logo + Text) --- */
+
+.navbar-brand {
+    font-size: 32px !important; /* Large Text Size */
+    font-weight: 800 !important;
+    letter-spacing: 0.5px;
+}
+
+.logo-img {
+    height: 50px; /* Logo Height */
+    width: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+/* Scroll Effect Adjustments */
+.navbar-scrolled .navbar-brand {
+    font-size: 28px !important; /* Slightly smaller on scroll */
+}
+
+.navbar-scrolled .logo-img {
+    height: 40px; /* Slightly smaller on scroll */
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 991px) {
+    .navbar-brand {
+        font-size: 24px !important;
+    }
+    .logo-img {
+        height: 35px;
+    }
+}
+
+/* Links Styling */
+.nav-link {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: rgb(23, 2, 2) !important; /* White text initially for dark hero bg */
+  font-size: 15px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Hover Line Effect */
+.nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--accent-red) !important;
+  transition: width 0.3s;
+  margin: auto;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Get Quote Button Styling */
+.btn-quote {
+  background: var(--accent-red);
+  color: white;
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border: 2px solid var(--accent-red);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-quote:hover {
+  background: transparent;
+  color: var(--accent-red); /* Depends on background, usually white on hero */
+  border-color: var(--accent-red);
+}
+
+/* --- SCROLLED STATE (White Background) --- */
+.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+/* Change Text Color on White Background */
+.navbar-scrolled .nav-link, 
+.navbar-scrolled .brand-text {
+  color: var(--dark-color) !important;
+}
+
+.navbar-scrolled .btn-quote:hover {
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+}
+
+/* --- Mobile View Adjustments --- */
+@media (max-width: 991px) {
+  .navbar { 
+    background: white; /* Always white on mobile for readability */
+    padding: 10px 0;
+  }
+  .nav-link, .brand-text { 
+    color: var(--dark-color) !important; 
+  }
+  .btn-quote {
+      width: 100%; /* Full width button on mobile */
+      display: block;
+      text-align: center;
+  }
+}
+
+/* --- Hero Slider Styles --- */
+
+.hero-section {
+  /* This fixes the overlapping issue */
+  padding-top: 40px; 
+  padding-bottom: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Wrapper to control width */
+.slider-wrapper {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Desktop View: Limit to 800px */
+@media (min-width: 992px) {
+  .slider-wrapper {
+    max-width: 800px;
+  }
+}
+
+/* Mobile View: Adjust margin */
+@media (max-width: 991px) {
+  .hero-section {
+    padding-top: 40px !important;
+  }
+}
+
+/* Image Styling */
+.slider-img {
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom on Hover */
+.carousel-inner:hover .slider-img {
+  transform: scale(1.05);
+}
+
+/* Custom Caption */
+.custom-caption {
+  background: rgba(0, 0, 0, 0.7);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.custom-caption h5 {
+  color: #fff;
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 1px;
+}
+
+.custom-caption p {
+  color: #ddd;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Arrow Customization */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 50%;
+  background-color: var(--accent-red) !important;
+  filter: invert(1);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .slider-img {
+    height: 250px;
+  }
+  .hero-section{
+    padding: 0px 10px;
+  }
+}
+.custom-caption p{
+    display: none;
+}
+
+/* ================== Service Section ==================== */
+/* --- Services Styling --- */
+.service-box {
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    border-bottom-color: var(--accent-red);
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 174, 239, 0.1); /* Light Blue */
+    color: var(--primary-blue);
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.service-box:hover .icon-box {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Get Quote Button inside Card */
+.service-box .btn-outline-primary {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    transition: 0.3s;
+}
+
+.service-box .btn-outline-primary:hover {
+    background-color: var(--accent-red); /* Red on hover */
+    border-color: var(--accent-red);
+    color: white;
+}
+
+/* Load More Animation */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== About Us Section ================= */
+/* --- About Section Styles --- */
+
+/* Wrapper for the image */
+.director-img-wrapper {
+  position: relative;
+  padding: 20px; /* Space for the pattern behind */
+}
+
+/* Image Styling - Ensures Full Visibility */
+.director-img-wrapper img {
+  width: 100%;      /* Full width of the column */
+  height: auto;     /* Height adjusts automatically (No Cropping) */
+  object-fit: contain; /* Ensures the whole photo is seen */
+  max-height: 350px; /* Prevents it from becoming too tall on huge screens */
+  border: 5px solid white; /* Nice white frame */
+}
+
+/* Decorative Pattern behind image */
+.img-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-image: radial-gradient(var(--accent-red) 2px, transparent 2px);
+  background-size: 10px 10px;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+/* Floating Name Badge */
+.director-badge {
+  position: absolute;
+  bottom: 40px;
+  left: -10px;
+  background: white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-left: 5px solid var(--primary-blue);
+  z-index: 2;
+  text-align: left;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+  .director-img-wrapper {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  .director-badge {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* ================= Gallery Section =============== */
+/* --- Gallery Card Styles --- */
+.gallery-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 280px; 
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 3px solid rgba(0, 0, 0, 0.333) !important;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* --- LIGHTBOX & SCROLL FIXES --- */
+
+/* 1. Allow Scrolling for Large Images */
+#lightboxModal .modal-dialog {
+    max-width: 900px; /* Wider on desktop */
+    margin: 1.75rem auto;
+}
+
+#lightboxModal .modal-body img {
+    width: 100%;
+    height: auto; /* Allow height to grow so it scrolls */
+    display: block;
+}
+
+/* 2. Fixed Close Button for Mobile */
+.btn-close-custom {
+    position: fixed; /* Fixed relative to viewport */
+    top: 20px;
+    right: 20px;
+    z-index: 1060; /* Higher than modal */
+    background-color: white;
+    color: #333;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    font-size: 24px;
+    transition: 0.3s;
+}
+
+.btn-close-custom:hover {
+    background-color: var(--accent-red);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Animation */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.gallery-card h5{
+    color: #fff !important;
+}
+
+/* Gallery Cards Updated with Visible Border */
+      .gallery-card {
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        /* Yahan transparent ki jagah light gray/blue border add kiya hai */
+        border: 2px solid #dee2e6; 
+        transition: all 0.3s ease;
+      }
+      
+      .gallery-card:hover {
+        /* Hover karne par ye wapas aapke theme wale red color ka ho jayega */
+        border-color: var(--accent-red); 
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 33, 71, 0.15);
+      }
+/* =================== Contact Us ==================== */
+
+.contact-info-box {
+    background: var(--gradient-main); /* Uses your Blue Gradient */
+    overflow: hidden;
+}
+
+/* Decorative Circle in Background */
+.circle-decoration {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+/* Icon Circles */
+.icon-circle {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Social Buttons */
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: white;
+    color: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+/* Form Styles */
+.form-floating > .form-control,
+.form-floating > .form-select {
+    border-radius: 10px;
+    border: 1px solid #eee;
+    background-color: #f8f9fa;
+}
+
+.form-floating > .form-control:focus,
+.form-floating > .form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: none;
+    background-color: white;
+}
+
+.form-floating > label {
+    color: #999;
+}
+
+/* Submit Button Hover */
+.btn-custom {
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    box-shadow: 0 10px 20px rgba(0, 174, 239, 0.3);
+}
+
+/* ==================== Footer Copyright ==================== */
+/* --- Footer Bottom Utilities --- */
+
+.border-secondary {
+  border-color: rgba(255, 255, 255, 0.1) !important; /* Faint border */
+}
+
+.text-secondary {
+  color: var(--dark-color) !important; /* Soft Grey */
+}
+
+.hover-white {
+  transition: color 0.3s ease;
+}
+
+.hover-white:hover {
+  color: var(--accent-red) !important; /* Turns white on hover */
+}
+
+   /* ============================================ 
+   CLIENTS SECTION STYLING
+   ============================================ */
+.client-logo-box {
+  background: #ffffff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  height: 100px; /* Fixed height for uniformity */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-img {
+  max-height: 65px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(100%); /* Normal state me black & white */
+  opacity: 0.6;
+  transition: all 0.4s ease;
+}
+
+.client-logo-box:hover .client-img {
+  filter: grayscale(0%); /* Hover karne par colorful */
+  opacity: 1;
+  transform: scale(1.1); /* Halka sa zoom effect */
+}
